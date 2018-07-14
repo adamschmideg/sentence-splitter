@@ -35,7 +35,10 @@
     "postcommit": "git reset",
     "start": "webpack-dev-server --mode development",
     "transpile": "babel src -d dist --copy-files",
-    "prepublishOnly": "npm run transpile"
+    "prepublishOnly": "npm run transpile",
+    "buildDemo": "webpack --mode production",
+    "deploy": "gh-pages -d examples/dist",
+    "publish-demo": "npm run buildDemo && npm run deploy"
   },
   "keywords": [
     "text",
@@ -62,6 +65,7 @@
     "babel-preset-react": "^6.24.1",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
+    "gh-pages": "^1.2.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
