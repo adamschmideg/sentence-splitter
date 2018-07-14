@@ -33,13 +33,19 @@
     "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,css}'",
     "precommit": "lint-staged",
     "postcommit": "git reset",
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --mode development",
+    "transpile": "babel src -d dist --copy-files",
+    "prepublishOnly": "npm run transpile"
   },
   "keywords": [
     "text",
     "analytics",
     "textlint"
   ],
+  "peerDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
   "dependencies": {
     "@textlint/ast-node-types": "^4.0.2",
     "concat-stream": "^1.5.2",
@@ -49,6 +55,7 @@
   "devDependencies": {
     "@types/mocha": "^5.2.4",
     "@types/node": "^10.5.2",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
@@ -61,6 +68,8 @@
     "mocha": "^5.2.0",
     "power-assert": "^1.6.0",
     "prettier": "^1.13.7",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "style-loader": "^0.21.0",
     "ts-node": "^7.0.0",
     "ts-node-test-register": "^4.0.0",
